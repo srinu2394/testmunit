@@ -1,0 +1,15 @@
+pipeline{
+ agent any
+ environment {
+   ANYPOINT = credentials('deploy-anypoint-user')
+  }
+ stages {
+ 	stage('Build') {
+      steps {
+            bat 'mvn -B -U -e -V clean -DskipTests package'
+      }
+    }
+ 	
+ }
+
+}
