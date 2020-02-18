@@ -4,11 +4,13 @@ pipeline{
    ANYPOINT = credentials('deploy-anypoint-user')
   }
  stages {
- 	stage('Build') {
-      steps {
-            bat 'mvn -B -U -e -V clean -DskipTests package'
-      }
-    }
+ 		stage ('Build'){
+ 		steps {
+ 			withMaven(maven:'maven'){
+ 				sh 'mvn -f mule-jenkins-pipeline/pom.xml clean install'
+ 			}
+ 		}
+ 	}
  	
  }
 
