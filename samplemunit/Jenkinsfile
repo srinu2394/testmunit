@@ -20,7 +20,5 @@ pipeline{
  	}
  }
 
-tools {
-    maven '3.3.5'
-  }
+
 }
